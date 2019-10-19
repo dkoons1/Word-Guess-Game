@@ -1,39 +1,102 @@
-var words = ["nirvana", "oasis", "weezer", "pixies", "blur"]
-var randomWord = words[Math.floor(Math.random(words) * 5)]
+var words = ["nirvana", "oasis", "weezer", "pixies", "blur", "soundgarden", "radiohead", "sublime"]
+var randomWord = words[Math.floor(Math.random(words) * words.length)]
 var answers = []
+var wins = 0
+var bandName = document.getElementById("labels");
+var score = document.getElementById("wins");
+var guessed = document.getElementById("lettersGuessed")
+var guesses = []
+var letters = randomWord.length;
+var wordParagraph = document.getElementById("wordLine")
+var congratsParagraph = document.getElementById("gratsLine")
+var imager = document.getElementById("imgArea")
 
-var x = document.getElementById("rad")
- console.log(randomWord)
+// LOTS OF LABELS
+var pic = document.getElementById("bandPic");
+pic.src = "";
+pic.setAttribute("height", "25%");
+pic.setAttribute("width", "25%");
 
-for(var i = 0; i < randomWord.length; i++){
-    answers[i] = "_";
+
+//STARTING FUNCTION
+function start(){
+    words = ["nirvana", "oasis", "weezer", "pixies", "blur", "soundgarden", "radiohead", "sublime"]
+    randomWord = words[Math.floor(Math.random(words) * words.length)]
+    answers = []
+    wins = 0
+    letters = randomWord.length;
+    guessed.innerHTML = ""
+    for(var i = 0; i < randomWord.length; i++){
+        answers[i] = "_";
+    }
+    
+    wordParagraph.innerHTML = answers.join(" ")
 }
 
+//SETTING INITIAL SCORE
+score.innerHTML=wins
 
+//CALLING START
+start()
 
-var letters = randomWord.length;
-
-if(letters > 0){
-
-    x.innerHTML = answers
-    
-    document.onkeyup = function(event) {
-
+//CHEATING
+console.log(randomWord)
+document.onkeyup = function(event) {
+    if(letters >= 0){
         var letter = event.key.toLowerCase();
-
-        console.log(letter)
-
+        guessed.innerHTML += letter + ", "
         for(var j = 0; j < randomWord.length; j++){
             if (randomWord[j] === letter) {
                 answers[j] = letter
-                x.innerHTML = answers
-                letters--         
-            }
+                letters--       
+                wordParagraph.innerHTML = answers.join(" ")
+                console.log(letters)
+                if(letters == 0){
+                    labels()
+                    start()
+
+                    wins += 1
+                    score.innerHTML=wins
+                }
+            }		
         }
-
-      };
-}
-else{
-    x.innerHTML = "YOU DID IT U WON"
+    }
 }
 
+//SETTING UP WIN CONDITIONS AND STATEMENTS
+function labels(){
+    if(randomWord == "nirvana"){
+        bandName.innerHTML = "You got Nirvana!";
+        pic.src = "/Users/djkoons/Desktop/Online-Class/Homework/Homework-3/Word-Guess-Game/assets/images/nirvana.jpg";
+    }
+    else if(randomWord == "oasis"){
+        bandName.innerHTML = "You got Oasis!";
+        pic.src = "/Users/djkoons/Desktop/Online-Class/Homework/Homework-3/Word-Guess-Game/assets/images/oasis.jpg";
+    }
+    else if(randomWord == "pixies"){
+        bandName.innerHTML = "You got Pixies!";
+        pic.src = "/Users/djkoons/Desktop/Online-Class/Homework/Homework-3/Word-Guess-Game/assets/images/pixies.jpg";
+    }
+    else if(randomWord == "blur"){
+        bandName.innerHTML = "You got Blur!";
+        pic.src = "/Users/djkoons/Desktop/Online-Class/Homework/Homework-3/Word-Guess-Game/assets/images/blur.jpg";
+    }
+    else if(randomWord == "soundgarden"){
+        bandName.innerHTML = "You got Soundgarden!";
+        pic.src = "/Users/djkoons/Desktop/Online-Class/Homework/Homework-3/Word-Guess-Game/assets/images/soundgarden.jpg";
+    }
+    else if(randomWord == "weezer"){
+        bandName.innerHTML = "You got Weezer!";
+        pic.src = "/Users/djkoons/Desktop/Online-Class/Homework/Homework-3/Word-Guess-Game/assets/images/weezer.jpg";
+    }
+    else if(randomWord == "radiohead"){
+        bandName.innerHTML = "You got Radiohead!";
+        pic.src = "/Users/djkoons/Desktop/Online-Class/Homework/Homework-3/Word-Guess-Game/assets/images/radiohead.jpg";
+
+    }
+    else if(randomWord == "sublime"){
+        bandName.innerHTML = "You got Sublime!";
+        pic.src = "/Users/djkoons/Desktop/Online-Class/Homework/Homework-3/Word-Guess-Game/assets/images/sublime.jpg";
+
+    }
+}
