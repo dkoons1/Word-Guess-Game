@@ -10,6 +10,8 @@ var letters = randomWord.length;
 var wordParagraph = document.getElementById("wordLine")
 var congratsParagraph = document.getElementById("gratsLine")
 var imager = document.getElementById("imgArea")
+var guessesLeft = document.getElementById("guessesLeft")
+var guess = 10
 
 // LOTS OF LABELS
 var pic = document.getElementById("bandPic");
@@ -23,8 +25,10 @@ function start(){
     words = ["nirvana", "oasis", "weezer", "pixies", "blur", "soundgarden", "radiohead", "sublime"]
     randomWord = words[Math.floor(Math.random(words) * words.length)]
     answers = []
+    guess = 10
     wins = 0
     letters = randomWord.length;
+    guessesLeft.innerHTML = guess
     guessed.innerHTML = ""
     for(var i = 0; i < randomWord.length; i++){
         answers[i] = "_";
@@ -43,22 +47,29 @@ start()
 console.log(randomWord)
 document.onkeyup = function(event) {
     if(letters >= 0){
-        var letter = event.key.toLowerCase();
-        guessed.innerHTML += letter + ", "
-        for(var j = 0; j < randomWord.length; j++){
-            if (randomWord[j] === letter) {
-                answers[j] = letter
-                letters--       
-                wordParagraph.innerHTML = answers.join(" ")
-                console.log(letters)
-                if(letters == 0){
-                    labels()
-                    start()
+            var letter = event.key.toLowerCase();
+            guessed.innerHTML += letter + ", "
+            guess -= 1
+            guessesLeft.innerHTML = guess
+            if(guess == 0){
+                start()
+            }
+            else{
+            for(var j = 0; j < randomWord.length; j++){
+                if (randomWord[j] === letter) {
+                    answers[j] = letter
+                    letters--       
+                    wordParagraph.innerHTML = answers.join(" ")
+                    console.log(letters)
+                    if(letters == 0){
+                        labels()
+                        start()
 
-                    wins += 1
-                    score.innerHTML=wins
-                }
-            }		
+                        wins += 1
+                        score.innerHTML=wins
+                    }
+                }		
+            }
         }
     }
 }
