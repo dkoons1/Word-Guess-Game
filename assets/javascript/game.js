@@ -26,7 +26,6 @@ function start(){
     randomWord = words[Math.floor(Math.random(words) * words.length)]
     answers = []
     guess = 10
-    wins = 0
     letters = randomWord.length;
     guessesLeft.innerHTML = guess
     guessed.innerHTML = ""
@@ -65,7 +64,6 @@ document.onkeyup = function(event) {
                     if(letters == 0){
                         labels()
                         start()
-
                         wins += 1
                         score.innerHTML=wins
                     }
