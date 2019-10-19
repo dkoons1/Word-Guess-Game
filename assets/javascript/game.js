@@ -53,6 +53,7 @@ document.onkeyup = function(event) {
             guessesLeft.innerHTML = guess
             if(guess == 0){
                 start()
+                pic.src=""
             }
             else{
             for(var j = 0; j < randomWord.length; j++){
@@ -78,36 +79,36 @@ document.onkeyup = function(event) {
 function labels(){
     if(randomWord == "nirvana"){
         bandName.innerHTML = "You got Nirvana!";
-        pic.src = "/Users/djkoons/Desktop/Online-Class/Homework/Homework-3/Word-Guess-Game/assets/images/nirvana.jpg";
+        pic.src = "https://www.telegraph.co.uk/content/dam/music/2016/09/23/nirvana_trans_NvBQzQNjv4Bqeo_i_u9APj8RuoebjoAHt0k9u7HhRJvuo-ZLenGRumA.jpg?imwidth=1400";
     }
     else if(randomWord == "oasis"){
         bandName.innerHTML = "You got Oasis!";
-        pic.src = "/Users/djkoons/Desktop/Online-Class/Homework/Homework-3/Word-Guess-Game/assets/images/oasis.jpg";
+        pic.src = "https://consequenceofsound.net/wp-content/uploads/2014/10/beadyeye2014promo.jpg";
     }
     else if(randomWord == "pixies"){
-        bandName.innerHTML = "You got Pixies!";
-        pic.src = "/Users/djkoons/Desktop/Online-Class/Homework/Homework-3/Word-Guess-Game/assets/images/pixies.jpg";
+        bandName.innerHTML = "You got Pixies!"
+        pic.src = "https://ksassets.timeincuk.net/wp/uploads/sites/55/2015/08/2013PixiesEM051213.hero_-1-920x515.jpg";
     }
     else if(randomWord == "blur"){
         bandName.innerHTML = "You got Blur!";
-        pic.src = "/Users/djkoons/Desktop/Online-Class/Homework/Homework-3/Word-Guess-Game/assets/images/blur.jpg";
+        pic.src = "https://ksassets.timeincuk.net/wp/uploads/sites/55/2013/03/2013Blur-photocredit-Zanna120313-1-620x417.jpg";
     }
     else if(randomWord == "soundgarden"){
         bandName.innerHTML = "You got Soundgarden!";
-        pic.src = "/Users/djkoons/Desktop/Online-Class/Homework/Homework-3/Word-Guess-Game/assets/images/soundgarden.jpg";
+        pic.src = "https://townsquare.media/site/295/files/2014/10/soundgarden.jpg?w=980&q=75";
     }
     else if(randomWord == "weezer"){
         bandName.innerHTML = "You got Weezer!";
-        pic.src = "/Users/djkoons/Desktop/Online-Class/Homework/Homework-3/Word-Guess-Game/assets/images/weezer.jpg";
+        pic.src = "https://bloximages.newyork1.vip.townnews.com/nola.com/content/tncms/assets/v3/editorial/1/b9/1b9e463a-98e3-59bf-aa4d-02ed8c81a52e/5cdccee77eaa6.image.jpg?resize=1200%2C800";
     }
     else if(randomWord == "radiohead"){
         bandName.innerHTML = "You got Radiohead!";
-        pic.src = "/Users/djkoons/Desktop/Online-Class/Homework/Homework-3/Word-Guess-Game/assets/images/radiohead.jpg";
+        pic.src = "http://s3.amazonaws.com/quietus_production/images/articles/26615/image_1560253664_crop_550x293.jpg";
 
     }
     else if(randomWord == "sublime"){
         bandName.innerHTML = "You got Sublime!";
-        pic.src = "/Users/djkoons/Desktop/Online-Class/Homework/Homework-3/Word-Guess-Game/assets/images/sublime.jpg";
+        pic.src = "https://movies-b26f.kxcdn.com/wp-content/uploads/2017/08/sublime-770x470.jpg";
 
     }
 }
